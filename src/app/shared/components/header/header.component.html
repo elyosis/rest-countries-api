@@ -1,4 +1,18 @@
 <header>
   <h1>Where in the world?</h1>
-  <button aria-label="Change page color theme"><img src="../../../../assets/moon-filled.svg" alt="Moon icon" aria-hidden="true"><span>Dark Mode</span></button>
+  <button (click)="changeTheme()" aria-label="Change page color theme">
+    <img
+      src="../../../../assets/moon-filled.svg"
+      alt="Moon icon filled"
+      aria-hidden="true"
+      *ngIf="currentTheme === 'dark'"
+    />
+    <img
+      src="../../../../assets/moon.svg"
+      alt="Moon icon"
+      aria-hidden="true"
+      *ngIf="currentTheme === 'light'"
+    />
+    <span>Dark Mode</span>
+  </button>
 </header>
