@@ -1,0 +1,30 @@
+.search-container {
+  position: relative;
+}
+
+.search-container img {
+  height: 25px;
+  position: absolute;
+  top: calc(50% - 12.5px);
+  left: 25px;
+  filter: invert(var(--invert));
+  opacity: 0.9;
+}
+
+input {
+  padding: 1rem;
+  padding-left: 4.5rem;
+  font-family: inherit;
+  font-size: var(--items-font-size);
+  color: var(--color-input-text);
+  background-color: var(--color-elements);
+  border: none;
+  outline: none;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  width: clamp(280px, 30vw, 470px);
+}
+
+input::placeholder {
+  color: var(--color-input-text);
+}
