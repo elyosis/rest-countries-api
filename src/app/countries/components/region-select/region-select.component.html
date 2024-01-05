@@ -1,0 +1,35 @@
+<div class="dropdown-container">
+  <button
+    class="dropdown-toggle"
+    role="combobox"
+    aria-haspopup="listbox"
+    aria-controls="regions-dropdown"
+    aria-expanded="false"
+    (click)="expandDropdown()"
+  >
+    <span>Filter by Region</span>
+    <span>
+      <img
+        src="../../../../assets/arrow-down.svg"
+        alt="Arrow down icon"
+        aria-hidden="true"
+      />
+    </span>
+  </button>
+  <ul class="dropdown" [ngClass]="{'expanded': expanded}" role="listbox" id="regions-dropdown">
+    <li
+      *ngFor="let region of regions"
+      (click)="dropdownClick(region)"
+      [ngClass]="{ active: selectedRegion === region }"
+      role="option"
+    >
+      <input
+        type="radio"
+        id="{{ region }}"
+        name="regions"
+        value="{{ region }}"
+      />
+      <label for="{{ region }}">{{ region | titlecase }}</label>
+    </li>
+  </ul>
+</div>
