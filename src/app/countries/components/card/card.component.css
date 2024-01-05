@@ -1,0 +1,34 @@
+.card-container {
+  box-shadow: var(--shadow);
+}
+
+img {
+  width: 275px;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  display: block;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+}
+
+.country-info {
+  padding: 1.25rem 1.5rem 2.5rem;
+  background-color: var(--color-elements);
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+}
+
+.country-name {
+  margin-block: .5rem 1rem;
+  font-size: 1rem;
+  font-weight: var(--bold-font-weight);
+}
+
+.country-data-point {
+  font-size: var(--items-font-size);
+  margin-block: .25rem;
+}
+
+.country-accented {
+  font-weight: var(--medium-font-weight);
+}
