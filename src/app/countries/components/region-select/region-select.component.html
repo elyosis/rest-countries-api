@@ -4,7 +4,7 @@
     role="combobox"
     aria-haspopup="listbox"
     aria-controls="regions-dropdown"
-    aria-expanded="false"
+    [attr.aria-expanded]="expanded"
     (click)="expandDropdown()"
   >
     <span>Filter by Region</span>
