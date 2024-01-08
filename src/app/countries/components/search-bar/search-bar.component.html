@@ -1,4 +1,13 @@
 <div class="search-container">
-  <input type="text" placeholder="Search for a country..." />
-  <img src="../../../../assets/search.svg" alt="Search icon" aria-hidden="true">
+  <input
+    type="text"
+    placeholder="Search for a country..."
+    #countrySearchInput
+    (keyup)="logSearch(countrySearchInput.value)"
+  />
+  <img
+    src="../../../../assets/search.svg"
+    alt="Search icon"
+    aria-hidden="true"
+  />
 </div>

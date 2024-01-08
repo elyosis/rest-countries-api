@@ -20,4 +20,9 @@ export class CountriesService {
     const url = `${this.apiUrl}/all`;
     return this.sendRequest(url);
   }
+
+  searchCountryByName(query: string): Observable<Country[]> {
+    const url = `${this.apiUrl}/name/${query}`;
+    return this.sendRequest(url);
+  }
 }

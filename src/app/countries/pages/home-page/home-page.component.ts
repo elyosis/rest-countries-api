@@ -22,7 +22,15 @@ export class HomePageComponent implements OnInit {
     return country.cca3;
   }
 
-  filterCountries(region: Region) {
+  filterCountries(region: Region): void {
     this.selectedRegion = region;
+  }
+
+  searchCountry(country: string): void {
+    if (country === "") {
+      this.countriesService.searchCountries().subscribe(countries => this.countries = countries)
+    } else {
+      this.countriesService.searchCountryByName(country).subscribe(countries => this.countries = countries);
+    }
   }
 }

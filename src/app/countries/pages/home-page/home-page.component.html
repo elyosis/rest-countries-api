@@ -1,23 +1,30 @@
 <div class="search-row">
-  <countries-search-bar></countries-search-bar>
+  <countries-search-bar
+    (onSearch)="searchCountry($event)"
+  ></countries-search-bar>
   <countries-region-select
     (changeRegion)="filterCountries($event)"
   ></countries-region-select>
 </div>
-<div class="card-container">
-  <ng-template
-    ngFor
-    let-country
-    [ngForOf]="countries"
-    let-i="index"
-    [ngForTrackBy]="trackByCode"
-  >
-    <countries-card
-      *ngIf="
-        selectedRegion === 'all' ||
-        selectedRegion === country.region.toLowerCase()
-      "
-      [country]="country"
-    ></countries-card>
-  </ng-template>
+<div class="search-alert" *ngIf="countries.length === 0; else cards">
+  No countries found matching the query.
 </div>
+<ng-template #cards>
+  <div class="card-container">
+    <ng-template
+      ngFor
+      let-country
+      [ngForOf]="countries"
+      let-i="index"
+      [ngForTrackBy]="trackByCode"
+    >
+      <countries-card
+        *ngIf="
+          selectedRegion === 'all' ||
+          selectedRegion === country.region.toLowerCase()
+        "
+        [country]="country"
+      ></countries-card>
+    </ng-template>
+  </div>
+</ng-template>

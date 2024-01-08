@@ -5,6 +5,14 @@
   margin: 3rem 4rem;
 }
 
+.search-alert {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10rem;
+  font-size: 2rem;
+}
+
 .card-container {
   margin: 3rem 4rem;
   display: grid;
