@@ -2,3 +2,9 @@
   <countries-search-bar></countries-search-bar>
   <countries-region-select></countries-region-select>
 </div>
+<div class="card-container">
+  <countries-card
+    *ngFor="let country of countries"
+    [country]="country"
+  ></countries-card>
+</div>

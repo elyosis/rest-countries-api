@@ -1,10 +1,10 @@
 <div class="card-container">
-<img src="https://flagcdn.com/bb.svg" alt="Country flag">
+<img [src]="country.flags.svg" alt="Country flag">
 <div class="country-info">
-  <p class="country-name">Belgium</p>
-  <p class="country-data-point"><span class="country-accented">Population: </span>11555997</p>
-  <p class="country-data-point"><span class="country-accented">Region: </span>Europe</p>
-  <p class="country-data-point"><span class="country-accented">Capital: </span>Brussels</p>
+  <p class="country-name">{{country.name.common}}</p>
+  <p class="country-data-point"><span class="country-accented">Population: </span>{{country.population | number}}</p>
+  <p class="country-data-point"><span class="country-accented">Region: </span>{{country.region}}</p>
+  <p class="country-data-point"><span class="country-accented">Capital: </span>{{country.capital}}</p>
 </div>
 
 </div>
