@@ -1,5 +1,6 @@
 .card-container {
   box-shadow: var(--shadow);
+  cursor: pointer;
 }
 
 img {
