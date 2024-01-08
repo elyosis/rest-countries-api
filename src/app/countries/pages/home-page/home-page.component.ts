@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Country } from '../../interfaces/country.interface';
 import { CountriesService } from '../../services/countries.service';
+import { Region } from '../../interfaces/region.type';
 
 @Component({
   selector: 'countries-home-page',
@@ -9,6 +10,7 @@ import { CountriesService } from '../../services/countries.service';
 })
 export class HomePageComponent implements OnInit {
   countries: Country[] = [];
+  selectedRegion: Region = "all";
 
   constructor(private countriesService: CountriesService) { }
 
@@ -16,4 +18,11 @@ export class HomePageComponent implements OnInit {
     this.countriesService.searchCountries().subscribe(countries => this.countries = countries)
   }
 
+  trackByCode(index: number, country: Country) {
+    return country.cca3;
+  }
+
+  filterCountries(region: Region) {
+    this.selectedRegion = region;
+  }
 }
