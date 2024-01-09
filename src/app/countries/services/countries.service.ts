@@ -3,6 +3,7 @@ import { Observable, catchError, map, of, tap } from 'rxjs';
 import { Country } from '../interfaces/country.interface';
 import { HttpClient } from '@angular/common/http';
 import { CountriesStore } from '../interfaces/countriesStore.interface';
+import { Region } from '../interfaces/region.type';
 
 @Injectable({
   providedIn: 'root'
@@ -44,6 +45,7 @@ export class CountriesService {
     return this.sendRequest(url).pipe(
       tap((countries) => {
         this.countriesStore.countries = countries;
+        this.countriesStore.query = "";
       }),
       tap(() => this.saveToLocalStorage())
     );
@@ -64,5 +66,10 @@ export class CountriesService {
     const url = `${this.apiUrl}/alpha/${code}`;
     return this.http.get<Country[]>(url).pipe(map(countries => countries.length > 0 ? countries[0] : null),
       catchError(() => of(null)));
+  }
+
+  changeRegionFilter(region: Region) {
+    this.countriesStore.selectedRegion = region;
+    this.saveToLocalStorage();
   }
 }

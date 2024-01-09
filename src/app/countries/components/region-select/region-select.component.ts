@@ -44,7 +44,7 @@ export class RegionSelectComponent implements OnInit, OnDestroy {
   dropdownClick(region: Region): void {
     if (region !== this.selectedRegion) {
       this.selectedRegion = region;
-      this.countriesService.countriesStore.selectedRegion = region;
+      this.countriesService.changeRegionFilter(region);
       this.debouncer.next(region);
     } else {
       return
