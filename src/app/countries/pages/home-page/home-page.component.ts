@@ -10,13 +10,14 @@ import { Region } from '../../interfaces/region.type';
 })
 export class HomePageComponent implements OnInit {
   countries: Country[] = [];
-  selectedRegion: Region = "all";
+  selectedRegion!: Region;
 
   constructor(private countriesService: CountriesService) { }
 
   ngOnInit(): void {
     if (this.countriesService.countriesStore.countries.length > 0) {
       this.countries = this.countriesService.countriesStore.countries;
+      this.selectedRegion = this.countriesService.countriesStore.selectedRegion;
     } else {
       this.countriesService.searchCountries().subscribe(countries => this.countries = countries)
     }
