@@ -16,7 +16,6 @@ export class CountryPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.countriesService.searchCountryByCode(this.code).subscribe((country) => {
-      console.log(country)
       if (!country) return this.router.navigateByUrl("");
       return this.country = country;
     })
