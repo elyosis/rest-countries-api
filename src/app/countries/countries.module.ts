@@ -7,6 +7,7 @@ import { RegionSelectComponent } from './components/region-select/region-select.
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { CardComponent } from './components/card/card.component';
 import { CountryPageComponent } from './pages/country-page/country-page.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -16,11 +17,12 @@ import { CountryPageComponent } from './pages/country-page/country-page.componen
     RegionSelectComponent,
     SearchBarComponent,
     CardComponent,
-    CountryPageComponent
+    CountryPageComponent,
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    SharedModule
   ]
 })
 export class CountriesModule { }

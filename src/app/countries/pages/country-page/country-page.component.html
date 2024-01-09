@@ -1,1 +1,73 @@
-<p>country-page works!</p>
+<div class="container">
+  <shared-back-button></shared-back-button>
+  <ng-template #alert>
+    <div class="alert" #alert>
+      There's no information for the country requested.
+    </div>
+  </ng-template>
+  <div class="country-container" *ngIf="country; else alert">
+    <img [src]="country.flags.svg" [alt]="country.flags.alt" />
+    <div>
+      <h2>{{ country.name.common }}</h2>
+      <ul class="country-data">
+        <div>
+          <li>
+            <span class="country-data-title">Native Name: </span>
+            <span
+              *ngFor="
+                let name of country.name.nativeName | keyvalue;
+                last as isLast
+              "
+              >{{ name.value.common | display : isLast }}
+            </span>
+          </li>
+          <li>
+            <span class="country-data-title">Population: </span
+            >{{ country.population | number }}
+          </li>
+          <li>
+            <span class="country-data-title">Region: </span>{{ country.region }}
+          </li>
+          <li>
+            <span class="country-data-title">Sub Region: </span
+            >{{ country.subregion }}
+          </li>
+          <li>
+            <span class="country-data-title">Capital: </span
+            >{{ country.capital }}
+          </li>
+        </div>
+        <div>
+          <li>
+            <span class="country-data-title">Top Level Domain: </span>
+            <span *ngFor="let domain of country.tld; last as isLast"
+              >{{ domain | display : isLast }}
+            </span>
+          </li>
+          <li>
+            <span class="country-data-title">Currencies: </span>
+            <span
+              *ngFor="
+                let currency of country.currencies | keyvalue;
+                last as isLast
+              "
+              >{{ currency.value.name | display : isLast }}
+            </span>
+          </li>
+          <li>
+            <span class="country-data-title">Languages: </span>
+            <span
+              *ngFor="
+                let language of country.languages | keyvalue;
+                last as isLast
+              "
+              >{{ language.value | display : isLast }}
+            </span>
+          </li>
+        </div>
+      </ul>
+
+      <!-- TODO: border countries -->
+    </div>
+  </div>
+</div>
