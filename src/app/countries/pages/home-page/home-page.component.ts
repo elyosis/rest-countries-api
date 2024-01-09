@@ -15,7 +15,12 @@ export class HomePageComponent implements OnInit {
   constructor(private countriesService: CountriesService) { }
 
   ngOnInit(): void {
-    this.countriesService.searchCountries().subscribe(countries => this.countries = countries)
+    if (this.countriesService.countriesStore.countries.length > 0) {
+      this.countries = this.countriesService.countriesStore.countries;
+    } else {
+      this.countriesService.searchCountries().subscribe(countries => this.countries = countries)
+    }
+
   }
 
   trackByCode(index: number, country: Country) {

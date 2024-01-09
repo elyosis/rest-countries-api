@@ -1,14 +1,21 @@
 import { Injectable } from '@angular/core';
-import { Observable, catchError, map, of } from 'rxjs';
+import { Observable, catchError, map, of, tap } from 'rxjs';
 import { Country } from '../interfaces/country.interface';
 import { HttpClient } from '@angular/common/http';
+import { CountriesStore } from '../interfaces/countriesStore.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CountriesService {
 
-  apiUrl: string = "https://restcountries.com/v3.1/";
+  private apiUrl: string = "https://restcountries.com/v3.1/";
+
+  countriesStore: CountriesStore = {
+    countries: [],
+    query: "",
+    selectedRegion: "all"
+  }
 
   constructor(private http: HttpClient) { }
 
@@ -18,12 +25,21 @@ export class CountriesService {
 
   searchCountries(): Observable<Country[]> {
     const url = `${this.apiUrl}/all`;
-    return this.sendRequest(url);
+    return this.sendRequest(url).pipe(
+      tap((countries) => {
+        this.countriesStore.countries = countries;
+      })
+    );
   }
 
   searchCountryByName(query: string): Observable<Country[]> {
     const url = `${this.apiUrl}/name/${query}`;
-    return this.sendRequest(url);
+    return this.sendRequest(url).pipe(
+      tap((countries) => {
+        this.countriesStore.countries = countries;
+        this.countriesStore.query = query
+      })
+    );;
   }
 
   searchCountryByCode(code: string): Observable<Country | null> {
