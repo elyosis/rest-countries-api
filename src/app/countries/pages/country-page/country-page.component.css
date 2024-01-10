@@ -1,6 +1,18 @@
 .container {
   margin: 4rem;
+  display: flex;
+  flex-direction: column;
+}
 
+.alert {
+  align-self: center;
+  font-size: 2rem;
+  background-color: var(--color-elements);
+  color: var(color-text);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  max-width: fit-content;
+  padding: 1rem 2rem;
 }
 
 .country-container {

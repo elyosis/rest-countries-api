@@ -11,12 +11,18 @@ import { Country } from '../../interfaces/country.interface';
 export class CountryPageComponent implements OnInit {
   @Input() code!: string;
   country?: Country;
+  isLoading: boolean = false;
 
   constructor(private router: Router, private countriesService: CountriesService) { }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.countriesService.searchCountryByCode(this.code).subscribe((country) => {
-      if (!country) return this.router.navigateByUrl("");
+      if (!country) {
+        this.isLoading = false;
+        return this.router.navigateByUrl("")
+      };
+      this.isLoading = false;
       return this.country = country;
     })
   }

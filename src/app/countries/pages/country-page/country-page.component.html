@@ -1,11 +1,9 @@
 <div class="container">
   <shared-back-button></shared-back-button>
-  <ng-template #alert>
-    <div class="alert" #alert>
-      There's no information for the country requested.
-    </div>
-  </ng-template>
-  <div class="country-container" *ngIf="country; else alert">
+  <div class="alert" *ngIf="isLoading">
+    Loading country...
+  </div>
+  <div class="country-container" *ngIf="country">
     <img [src]="country.flags.svg" [alt]="country.flags.alt" />
     <div>
       <h2>{{ country.name.common }}</h2>

@@ -11,6 +11,7 @@ import { Region } from '../../interfaces/region.type';
 export class HomePageComponent implements OnInit {
   countries: Country[] = [];
   selectedRegion!: Region;
+  isLoading: boolean = false;
 
   constructor(private countriesService: CountriesService) { }
 
@@ -19,7 +20,12 @@ export class HomePageComponent implements OnInit {
       this.countries = this.countriesService.countriesStore.countries;
       this.selectedRegion = this.countriesService.countriesStore.selectedRegion;
     } else {
-      this.countriesService.searchCountries().subscribe(countries => this.countries = countries)
+      this.isLoading = true;
+      this.countriesService.searchCountries().subscribe((countries) => {
+        this.countries = countries;
+        this.selectedRegion = this.countriesService.countriesStore.selectedRegion;
+        this.isLoading = false;
+      })
     }
 
   }
@@ -33,10 +39,12 @@ export class HomePageComponent implements OnInit {
   }
 
   searchCountry(country: string): void {
+    this.isLoading = true;
     if (country === "") {
       this.countriesService.searchCountries().subscribe(countries => this.countries = countries)
     } else {
       this.countriesService.searchCountryByName(country).subscribe(countries => this.countries = countries);
     }
+    this.isLoading = false;
   }
 }

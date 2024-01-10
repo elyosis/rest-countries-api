@@ -6,7 +6,8 @@
     (changeRegion)="filterCountries($event)"
   ></countries-region-select>
 </div>
-<div class="search-alert" *ngIf="countries.length === 0; else cards">
+<div class="alert" *ngIf="isLoading">Please wait...</div>
+<div class="alert" *ngIf="countries.length === 0 && !isLoading; else cards">
   No countries found matching the query.
 </div>
 <ng-template #cards>

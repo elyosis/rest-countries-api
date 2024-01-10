@@ -5,12 +5,20 @@
   margin: 3rem 4rem;
 }
 
-.search-alert {
+.alert-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-top: 10rem;
+}
+
+.alert {
+  margin: 10rem auto;
   font-size: 2rem;
+  background-color: var(--color-elements);
+  color: var(color-text);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  max-width: fit-content;
+  padding: 1rem 2rem;
 }
 
 .card-container {
