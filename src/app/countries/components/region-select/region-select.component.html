@@ -1,5 +1,6 @@
 <div class="dropdown-container">
   <button
+    id="dropdown-toggle"
     class="dropdown-toggle"
     role="combobox"
     aria-haspopup="listbox"
@@ -8,15 +9,19 @@
     (click)="expandDropdown()"
   >
     <span>Filter by Region</span>
-    <span>
       <img
         src="../../../../assets/arrow-down.svg"
         alt="Arrow down icon"
         aria-hidden="true"
       />
-    </span>
   </button>
-  <ul class="dropdown" [ngClass]="{'expanded': expanded}" role="listbox" id="regions-dropdown">
+  <ul
+    class="dropdown"
+    [ngClass]="{ expanded: expanded }"
+    role="listbox"
+    id="regions-dropdown"
+    (hideDropdown)="expanded = false"
+  >
     <li
       *ngFor="let region of regions"
       (click)="dropdownClick(region)"
