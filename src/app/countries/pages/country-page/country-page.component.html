@@ -1,8 +1,6 @@
 <div class="container">
   <shared-back-button></shared-back-button>
-  <div class="alert" *ngIf="isLoading">
-    Loading country...
-  </div>
+  <div class="alert" *ngIf="isLoading">Loading country...</div>
   <div class="country-container" *ngIf="country">
     <img [src]="country.flags.svg" [alt]="country.flags.alt" />
     <div>
@@ -64,8 +62,21 @@
           </li>
         </div>
       </ul>
-
-      <!-- TODO: border countries -->
+      <div
+        class="country-borders"
+        *ngIf="borderCountries && borderCountries.length > 0 && !isLoading"
+      >
+        <p class="country-data-title">Border Countries:</p>
+        <div class="country-borders-container">
+          <p
+            class="country-borders-tag"
+            *ngFor="let country of borderCountries"
+            [routerLink]="['/countries', country.code]"
+          >
+            {{ country.name }}
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
