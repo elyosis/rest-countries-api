@@ -28,3 +28,13 @@ input {
 input::placeholder {
   color: var(--color-input-text);
 }
+
+@media (max-width: 835px) {
+  .search-container {
+    width: 100%;
+  }
+
+  input {
+    width: 100%;
+  }
+}

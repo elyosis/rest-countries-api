@@ -27,3 +27,9 @@ button {
 img {
   height: 30px;
 }
+
+@media (max-width: 835px) {
+  header {
+    padding: .5rem 2rem;
+  }
+}
