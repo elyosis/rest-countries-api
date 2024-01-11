@@ -29,8 +29,14 @@
             >{{ country.subregion }}
           </li>
           <li>
-            <span class="country-data-title">Capital: </span
-            >{{ country.capital }}
+            <span class="country-data-title">Capital: </span>
+            <span
+              *ngFor="
+                let capital of country.capital
+                last as isLast
+              "
+              >{{ capital | display : isLast }}
+            </span>
           </li>
         </div>
         <div>
