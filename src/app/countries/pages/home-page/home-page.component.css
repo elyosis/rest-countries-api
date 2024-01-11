@@ -40,3 +40,9 @@
     width: 100%;
   }
 }
+
+@media (max-width: 580px) {
+  .search-row {
+    margin: 2rem 1rem;
+  }
+}

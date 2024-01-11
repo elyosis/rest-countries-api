@@ -20,3 +20,10 @@ button img {
   display: block;
   filter: invert(var(--invert));
 }
+
+@media (max-width: 580px) {
+  button {
+    font-size: 15px;
+    padding: .5rem 2rem;
+  }
+}
