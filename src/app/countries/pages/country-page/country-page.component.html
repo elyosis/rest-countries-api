@@ -74,13 +74,13 @@
       >
         <p class="country-data-title">Border Countries:</p>
         <div class="country-borders-container">
-          <p
+          <button
             class="country-borders-tag"
             *ngFor="let country of borderCountries"
             [routerLink]="['/countries', country.code]"
           >
             {{ country.name }}
-          </p>
+        </button>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-<div class="card-container" [routerLink]="['countries/', country.cca3]">
+<div class="card-container" (keydown.enter)="navigateCard()" [routerLink]="['countries/', country.cca3]">
   <img [src]="country.flags.svg" alt="Country flag" />
   <div class="country-info">
     <p class="country-name">{{ country.name.common }}</p>
