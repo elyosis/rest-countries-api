@@ -21,7 +21,7 @@
   align-items: center;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
-  max-width: 1300px;
+  max-width: 1500px;
 }
 
 .country-container img {
@@ -83,7 +83,7 @@ h2 {
   .country-container {
     grid-template-columns: 1fr;
     grid-template-rows: fit-content 1fr;
-    justify-items: flex-start;
+    justify-items: center;
     width: 100%;
   }
 
@@ -107,6 +107,7 @@ h2 {
   }
 
   .country-container {
+    justify-items: flex-start;
     align-items: flex-start;
   }
 
