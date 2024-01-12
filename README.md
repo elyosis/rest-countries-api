@@ -4,6 +4,8 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 
 All icons used in this project were created by Alessio Atzeni, from his [Metrize](https://www.alessioatzeni.com/metrize-icons/) and [Meteocons](https://www.alessioatzeni.com/meteocons/) icon sets.
 
+A live version of the app can be seen [here](https://rest-countries-api-elyosis.netlify.app/).
+
 ## Overview
 
 ### The challenge
